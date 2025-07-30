@@ -1,0 +1,317 @@
+/* AboutUsPage.css */
+
+.about-us-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 30px;
+  user-select: none;
+}
+
+.breadcrumb-item {
+  margin-right: 5px;
+}
+
+.breadcrumb-separator {
+  margin: 0 8px;
+}
+
+.breadcrumb-item.active {
+  font-weight: bold;
+}
+
+.about-us-title {
+  font-weight: 900;
+  font-size: 40px;
+  margin-bottom: 30px;
+  letter-spacing: 1.2px;
+}
+
+.about-us-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-us-cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.card {
+  flex: 1;
+  border-radius: 15px 0 15px 0;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 0.1);
+  cursor: pointer;
+  background: white;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px 0 0 0;
+}
+
+.card-title {
+  font-weight: 900;
+  font-size: 18px;
+  padding: 20px;
+  margin: 0;
+  color: #111;
+}
+
+/* AboutUsPage.css */
+
+/* Base container for animations */
+.about-us-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  color: #222;
+  /* Add overflow hidden to prevent scrollbar issues with initial off-screen elements */
+  overflow: hidden;
+}
+
+/* --- Keyframe Animations --- */
+
+/* Fade in for general content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from left for breadcrumb */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Pop in for title */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Applying Animations --- */
+
+.breadcrumb {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 30px;
+  user-select: none;
+  /* Animation for breadcrumb */
+  animation: slideInFromLeft 0.6s ease-out forwards;
+  animation-delay: 0.2s; /* Delay slightly after container loads */
+  opacity: 0; /* Start hidden */
+}
+
+.breadcrumb-item {
+  margin-right: 5px;
+}
+
+.breadcrumb-separator {
+  margin: 0 8px;
+}
+
+.breadcrumb-item.active {
+  font-weight: bold;
+}
+
+.about-us-title {
+  font-weight: 900;
+  font-size: 40px;
+  margin-bottom: 30px;
+  letter-spacing: 1.2px;
+  /* Animation for title */
+  animation: popIn 0.7s ease-out forwards;
+  animation-delay: 0.4s; /* Delay after breadcrumb */
+  opacity: 0; /* Start hidden */
+}
+
+.about-us-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  /* Animation for text paragraphs */
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0; /* Start hidden */
+}
+
+/* Adjust animation delay for each paragraph for a staggered effect */
+.about-us-text p:nth-child(1) { animation-delay: 0.6s; }
+.about-us-text p:nth-child(2) { animation-delay: 0.8s; }
+.about-us-text p:nth-child(3) { animation-delay: 1.0s; }
+
+
+.about-us-cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.card {
+  flex: 1;
+  border-radius: 15px 0 15px 0;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 0.1);
+  cursor: pointer;
+  background: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add box-shadow to transition */
+
+  /* Animation for cards */
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0; /* Start hidden */
+}
+
+/* Staggered animation for cards */
+.about-us-cards .card:nth-child(1) { animation-delay: 1.2s; }
+.about-us-cards .card:nth-child(2) { animation-delay: 1.4s; }
+
+
+.card:hover {
+  transform: translateY(-8px); /* More pronounced lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px 0 0 0;
+}
+
+.card-title {
+  font-weight: 900;
+  font-size: 18px;
+  padding: 20px;
+  margin: 0;
+  color: #111;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .about-us-cards {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+  }
+
+  .card {
+    margin-bottom: 20px; /* Add space between stacked cards */
+  }
+
+  .about-us-title {
+    font-size: 32px; /* Adjust title size */
+  }
+}
+/* AboutUsPage.css */
+
+.about-us-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 30px;
+  user-select: none;
+}
+
+.breadcrumb-item {
+  margin-right: 5px;
+}
+
+.breadcrumb-separator {
+  margin: 0 8px;
+}
+
+.breadcrumb-item.active {
+  font-weight: bold;
+}
+
+.about-us-title {
+  font-weight: 900;
+  font-size: 40px;
+  margin-bottom: 30px;
+  letter-spacing: 1.2px;
+}
+
+.about-us-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-us-cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.card {
+  flex: 1;
+  border-radius: 15px 0 15px 0;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 0.1);
+  cursor: pointer;
+  background: white;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px 0 0 0;
+}
+
+.card-title {
+  font-weight: 900;
+  font-size: 18px;
+  padding: 20px;
+  margin: 0;
+  color: #111;
+}

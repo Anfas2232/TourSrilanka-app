@@ -1,3 +1,115 @@
+/* src/index.css or src/App.css */
+@import 'leaflet/dist/leaflet.css';
+
+/* Optional: Basic map styling and flexbox for layout */
+.map-container-wrapper {
+  display: flex;
+  flex-direction: column; /* Or row if you want sidebar next to map */
+  height: calc(100vh - 80px); /* Adjust based on header/footer */
+  margin: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.prompt-heading {
+  font-family: 'Prompt', sans-serif;
+}
+
+
+
+.map-container {
+  flex-grow: 1; /* Map takes available space */
+  height: 100%; /* Ensure map fills its container */
+  min-height: 400px; /* Minimum height for smaller screens */
+}
+
+.map-controls {
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Allow controls to wrap on smaller screens */
+}
+
+.back-button-style {
+  background-color: #38b2ac;
+  color: white;
+  font-weight: 500;
+  padding: 10px 25px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 40px; /* ← change this value */
+  margin-right: 20px;
+}
+
+
+.main-content-column {
+  /* ... other styles ... */
+  padding: 40px; /* This is key for its inner content padding */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map-controls button {
+  padding: 8px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+}
+
+.map-controls button:hover {
+  background-color: #0056b3;
+}
+
+.popup-content h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.popup-content p {
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.popup-content button {
+  background-color: #28a745;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85em;
+  transition: background-color 0.2s ease;
+}
+
+.popup-content button:hover {
+  background-color: #218838;
+}
+
+/* Basic app layout */
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
 .App {
   text-align: center;
 }
@@ -27,6 +139,17 @@
 .App-link {
   color: #61dafb;
 }
+.circle-icon {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+
 
 @keyframes App-logo-spin {
   from {

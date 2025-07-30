@@ -1,0 +1,131 @@
+.custom-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #457090; /* Match screenshot background */
+  padding: 12px 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+
+.nav-brand {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+/* Optional: Smooth transition */
+.dropdown-menu {
+  transition: all 0.3s ease;
+}
+
+
+/* Background color of dropdown */
+.dropdown-menu {
+  background-color: #f3f4f5; /* dark navy or change to your custom color */
+  border: none;
+  border-radius: 8px;
+}
+
+/* Text color */
+.dropdown-menu .dropdown-item {
+  color: #0c0c0c; /* white text */
+}
+
+/* Hover effect */
+.dropdown-menu .dropdown-item:hover {
+  background-color: #7bcdcd; /* your highlight color */
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+
+.nav-brand em {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.nav-brand strong {
+  font-weight: bold;
+}
+
+
+.nav-center {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  gap: 30px;
+}
+
+.nav-menu li {
+  font-size: 1rem;
+}
+
+.nav-menu li a,
+.nav-menu li span {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-menu li a:hover,
+.nav-menu li span:hover {
+  color: #e0e0e0;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-search {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 6px 12px;
+}
+
+.nav-search input {
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 6px;
+  font-size: 0.9rem;
+  outline: none;
+  width: 150px;
+}
+
+.nav-search input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-search button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 5px;
+}
