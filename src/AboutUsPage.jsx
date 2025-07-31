@@ -1,10 +1,30 @@
-// AboutUsPage.jsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react'; // Use ArrowLeft icon
 import './AboutUsPage.css';
 
+ import Red_Mosque from './images/bat5.jpg';
+import portcity from './images/bat6.jpg';
+
 const AboutUsPage = () => {
+  const navigate = useNavigate();
+
+  const goToMap = () => {
+    navigate('/'); // Replace with your map route if different
+  };
+
   return (
     <div className="about-us-container">
+      {/* Go to Sri Lanka Map Button */}
+      <div className="mb-3">
+        <button
+          onClick={goToMap}
+          className="back-button-style d-inline-flex align-items-center justify-content-center"
+        >
+          <ArrowLeft size={20} className="me-2" /> Back
+        </button>
+      </div>
+
       <nav className="breadcrumb">
         <span className="breadcrumb-item">HOME</span>
         <span className="breadcrumb-separator">➤</span>
@@ -15,20 +35,20 @@ const AboutUsPage = () => {
 
       <div className="about-us-text">
         <p>
-          A group from Sri Lanka’s private tourism sector came together shortly after the Easter outrage to form the Sri Lanka Tourism Alliance. The launch of the Love Sri Lanka website in May brought with it an outpouring of support & #love from the public. Within a few weeks Love Sri Lanka was being endorsed around the world, with over 200 members signing on to be part of the Alliance and workshops organised to assist the sector in the recovery phase.
+          A group from Sri Lanka’s private tourism sector came together shortly after the Easter outrage...
         </p>
         <p>
-          Spearheaded by the private sector, the Alliance has launched a Resilience Action Plan and a Crisis Response plan for the industry, along with a new consumer website to promote travel to Sri Lanka.
+          Spearheaded by the private sector, the Alliance has launched a Resilience Action Plan...
         </p>
         <p>
-          But above all, the Sri Lanka Tourism Alliance continues to be an example of the immensity of things that can be achieved when people come together.
+          But above all, the Sri Lanka Tourism Alliance continues to be an example...
         </p>
       </div>
 
       <div className="about-us-cards">
         <div className="card">
           <img 
-            src="https://cdn.pixabay.com/photo/2017/05/06/22/34/elephants-2282392_1280.jpg" 
+            src={Red_Mosque}
             alt="Join the Alliance" 
             className="card-image"
           />
@@ -37,7 +57,7 @@ const AboutUsPage = () => {
 
         <div className="card">
           <img 
-            src="https://love.srilanka.travel/wp-content/uploads/2021/06/Love-Sri-Lanka-Logo-Turquoise.jpg" 
+            src={portcity}
             alt="Twitter Feed" 
             className="card-image"
           />

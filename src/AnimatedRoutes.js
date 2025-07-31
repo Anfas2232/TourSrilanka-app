@@ -26,6 +26,7 @@ import ContactUsPage from './ContactUsPage';
 import KeyExperiencesPage from './KeyExperiencesPage';
 
 
+
 function AnimatedRoutes() {
   const location = useLocation();
   const nodeRef = useRef(null); // 👈 Required for React 18
@@ -62,7 +63,8 @@ function AnimatedRoutes() {
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/contact" element={<ContactUsPage />} />
             <Route path="/key-experiences" element={<KeyExperiencesPage />} />
-
+           
+       
         
           </Routes>
         </div>

@@ -1,0 +1,62 @@
+
+:root {
+  --accent-pink: #ff80a0;
+  --accent-purple: #a080ff; /* Not directly used in footer, but keeping for reference if future additions */
+  --footer-bg: #34495e;
+  --light-muted: #bdc3c7;
+}
+
+.custom-footer-bg {
+  background-color: var(--footer-bg);
+}
+
+.footer-hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  width: 80%; /* Consider if this width should be fixed or relative to container */
+}
+
+.text-accent-pink {
+  color: var(--accent-pink) !important;
+}
+
+.text-light-muted {
+  color: var(--light-muted) !important;
+}
+
+.hover-link {
+  transition: color 0.3s ease;
+}
+.hover-link:hover {
+  color: var(--accent-pink) !important;
+}
+
+.social-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: var(--accent-pink) !important;
+}
+
+/* Animation for the footer */
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-fade-in {
+  animation: fadeInBottom 1s ease-out forwards;
+}
+
+/* If you have a specific logo for the footer */
+.footer-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}

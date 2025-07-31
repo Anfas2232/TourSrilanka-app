@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import  { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { MapPin, Phone, Mail, Instagram, Facebook, Twitter, ArrowUp, ArrowLeft } from 'lucide-react';
+import { ArrowUp, ArrowLeft } from 'lucide-react';
 
-// --- Import NavBar component and its CSS ---
-import NavBar from './NavBar'; // Assuming NavBar component is in NavBar.js
-import './NavBar.css'; // Make sure NavBar.css is correctly linked and contains relevant styles
+import NavBar from './NavBar';
+import './NavBar.css';
 
-// --- Import images for the page content ---
+import Footer from './Footer'; 
+import './Footer.css';
+
 
 import museum from './images/pa1.jpg';
 import hospital from './images/pa3.jpg';
@@ -17,51 +18,9 @@ import seema from './images/pa44.jpg';
 import Red_Mosque from './images/pa5.jpg';
 import portcity from './images/pa6.jpg';
 import colompo from './images/pa3.jpg'; 
-// --- Navbar Component ---
-const Footer = () => {
-  return (
-    <footer className="custom-footer-bg text-white py-4 mt-5 footer-fade-in">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-4 mb-3">
-            <h5 className="text-accent-pink">Colombo Explorer</h5>
-            <p className="text-light-muted">Discover the vibrant city of Colombo, Sri Lanka. From historical sites to modern attractions, find your next adventure.</p>
-          </div>
-          <div className="col-md-4 mb-3">
-            <h5 className="text-accent-pink">Quick Links</h5>
-            <ul className="list-unstyled">
-              <li><a href="/contact" className="text-white text-decoration-none hover-link">Top Things to Do</a></li>
-              <li><a href="/contact" className="text-white text-decoration-none hover-link">Key Attractions</a></li>
-              <li><a href="/contact" className="text-white text-decoration-none hover-link">Best Experiences</a></li>
-              <li><a href="/contact" className="text-white text-decoration-none hover-link">Contact Us</a></li>
-            </ul>
-          </div>
-          <div className="col-md-4 mb-3">
-            <h5 className="text-accent-pink">Contact Us</h5>
-            <ul className="list-unstyled">
-              <li><MapPin size={16} className="me-2" /> 123 Main Street, Colombo, Sri Lanka</li>
-              <li><Phone size={16} className="me-2" /> +94 11 234 5678</li>
-              <li><Mail size={16} className="me-2" /> info@colomboexplorer.lk</li>
-            </ul>
-            <div className="d-flex mt-3">
-              <a href="https://www.linkedin.com/Anfas Mohamed" className="text-white me-3 social-icon"><Facebook size={24} /></a>
-              <a href="https://www.tiktok.com/@mr_anfas_10" className="text-white me-3 social-icon"><Twitter size={24} /></a>
-              <a href="https://www.youtube.com/@AnfasMohamed-c1x" className="text-white social-icon"><Instagram size={24} /></a>
-            </div>
-          </div>
-        </div>
-        <hr className="bg-white" />
-        <div className="text-center text-light-muted">
-          &copy; {new Date().getFullYear()} Colombo Explorer. All rights reserved.
-        </div>
-      </div>
-    </footer>
-  );
-};
-
 
 // --- Hero Section Component ---
-const HeroSection = ({ backgroundImage, title, subtitle, buttonText, onButtonClick }) => {
+const HeroSection = ({ title, subtitle, buttonText, onButtonClick, backgroundImage }) => {
   return (
     <div
       className="hero-section d-flex align-items-center justify-content-center text-center"
@@ -106,7 +65,6 @@ const HeroSection = ({ backgroundImage, title, subtitle, buttonText, onButtonCli
           </p>
         )}
 
-      
       </div>
     </div>
   );
@@ -123,10 +81,9 @@ const BackButton = () => {
   return (
     <div
       className="container-fluid py-5"
-      style={{ backgroundColor: '#f8f9fa', marginTop: '30px' }}  // <-- Add marginTop here
+      style={{ backgroundColor: '#f8f9fa', marginTop: '30px' }}
     >
       <div className="row justify-content-start ps-5">
-
         <div className="col-auto ps-1">
           <button
             onClick={handleBackClick}
@@ -139,8 +96,6 @@ const BackButton = () => {
     </div>
   );
 };
-
-
 
 
 // --- Card Component ---
@@ -221,11 +176,7 @@ const PasikudahDetailsPage = () => {
     { title: 'Jetavanarama Stupa', image: portcity, description: 'One of the tallest brick structures in the world.' },
   ];
 
-  // Handler for the new "Kana ily" button - This handler is no longer needed but kept for context.
-  const handleKanaIlyClick = () => {
-    alert("Kana ily button clicked!");
-    console.log("Kana ily button was pressed.");
-  };
+ 
 
   return (
     <div className="min-vh-100 d-flex flex-column">
@@ -537,8 +488,6 @@ const PasikudahDetailsPage = () => {
           transform: translateY(0);
           box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-
-        /* --- Removed .kana-ily-button-style from here as it's no longer used --- */
       `}</style>
 
       {/* The BackButton component is rendered directly below the NavBar */}
@@ -546,14 +495,12 @@ const PasikudahDetailsPage = () => {
 
       <div className="container-fluid py-5 flex-grow-1">
         <div className="main-content-column">
-          <HeroSection
-            backgroundImage={colompo}
-            title="Explore the Wonders of Pasikudah"
-            subtitle="An ancient city filled with historical and spiritual treasures."
-            
-            
-            
-          />
+
+            <HeroSection
+                title="Explore the Wonders of Pasikudah"
+                subtitle="An ancient city filled with historical and spiritual treasures."
+                backgroundImage={colompo} // Ensure colompo is correctly imported and passed
+            />
 
           <h1
             style={{
@@ -565,7 +512,7 @@ const PasikudahDetailsPage = () => {
               marginTop: '50px'
             }}
           >
-            The Ancient Wonders of Anuradhapura
+            The Ancient Wonders of Pasikudah
           </h1>
 
           <Section title="Key Attractions" cards={attractions} id="attractions" />
@@ -573,12 +520,19 @@ const PasikudahDetailsPage = () => {
       </div>
 
       <Footer />
-      {/* <BackToTopButton /> */}
+      <BackToTopButton />
     </div>
   );
 };
 
 export default PasikudahDetailsPage;
+
+
+
+
+
+
+
 
 
 

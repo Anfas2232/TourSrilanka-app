@@ -1,4 +1,4 @@
-// src/NavBar.js
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './NavBar.css'; // Link to your CSS file

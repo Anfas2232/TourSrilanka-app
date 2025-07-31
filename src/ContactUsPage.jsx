@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-
+import  { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import './ContactUsPage.css';
 
 const ContactUsPage = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,10 +27,31 @@ const ContactUsPage = () => {
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
+  const handleBackClick = () => {
+    navigate(-1); // Go back in history
+  };
+
+  const goToMap = () => {
+    navigate('/map'); // Navigate to Sri Lanka Map page
+  };
+
   return (
     <div className="contact-page">
       <div className="container py-5">
+        {/* Buttons */}
+        <div className="mb-4 d-flex justify-content-start gap-3">
+          <button
+            onClick={goToMap}
+            className="back-button-style d-inline-flex align-items-center justify-content-center"
+          >
+            <ArrowLeft size={20} className="me-2" /> Back
+          </button>
+
+      
+        </div>
+
         <h2 className="text-center mb-4">Contact Us</h2>
+
         <div className="row">
           <div className="col-md-6 mb-4">
             <h5>Get in Touch</h5>
