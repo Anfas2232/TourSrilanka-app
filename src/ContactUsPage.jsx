@@ -27,9 +27,7 @@ const ContactUsPage = () => {
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
-  const handleBackClick = () => {
-    navigate(-1); // Go back in history
-  };
+ 
 
   const goToMap = () => {
     navigate('/map'); // Navigate to Sri Lanka Map page
