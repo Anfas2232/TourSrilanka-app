@@ -31,7 +31,7 @@ function NavBar() {
           
           <li className="nav-item dropdown">
             {/* The <a> tag is used for Bootstrap dropdowns; Link is for actual navigation */}
-            <a className="nav-link dropdown-toggle text-white fw-semibold px-3" href="#" id="navbarDropdownAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a className="nav-link dropdown-toggle text-white fw-semibold px-3" href="about" id="navbarDropdownAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               ABOUT US
             </a>
             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownAbout">
@@ -41,18 +41,18 @@ function NavBar() {
           </li>
           
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle text-white fw-semibold px-3" href="#" id="navbarDropdownPlanning" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a className="nav-link dropdown-toggle text-white fw-semibold px-3" href="about" id="navbarDropdownPlanning" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               PLANNING A TRIP
             </a>
             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownPlanning">
-              <li><Link className="dropdown-item" to="/visa-info">Visa Info</Link></li>
-              <li><Link className="dropdown-item" to="/best-time-to-visit">Best Time to Visit</Link></li>
-              <li><Link className="dropdown-item" to="/travel-tips">Travel Tips</Link></li>
+              <li><Link className="dropdown-item" to="/about">Visa Info</Link></li>
+              <li><Link className="dropdown-item" to="/about">Best Time to Visit</Link></li>
+              <li><Link className="dropdown-item" to="/about">Travel Tips</Link></li>
             </ul>
           </li>
           
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle text-white fw-semibold px-3" href="#" id="navbarDropdownDestinations" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a className="nav-link dropdown-toggle text-white fw-semibold px-3" href="about" id="navbarDropdownDestinations" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               DESTINATIONS
             </a>
             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownDestinations">

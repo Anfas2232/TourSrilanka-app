@@ -22,6 +22,9 @@ import NuwaraEliyaDetailsPage from './NuwaraEliyaDetailsPage';
 import NegomboDetailsPage from './NegomboDetailsPage';
 import PlaceDetails from './PlaceDetails';
 import AboutUsPage from './AboutUsPage';
+import ContactUsPage from './ContactUsPage';
+import KeyExperiencesPage from './KeyExperiencesPage';
+
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -57,6 +60,10 @@ function AnimatedRoutes() {
             <Route path="/details/Negombo" element={<NegomboDetailsPage />} />
             <Route path="/details/Ella" element={<EllaDetailsPage />} />
             <Route path="/about" element={<AboutUsPage />} />
+            <Route path="/contact" element={<ContactUsPage />} />
+            <Route path="/key-experiences" element={<KeyExperiencesPage />} />
+
+        
           </Routes>
         </div>
       </CSSTransition>

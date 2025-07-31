@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React from 'react'; // useState, useEffect தேவையில்லை என்பதால் நீக்கப்பட்டுள்ளது
+import { useNavigate } from 'react-router-dom'; // Link பயன்படுத்தப்படாததால் நீக்கப்பட்டது
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { MapPin, Phone, Mail, Instagram, Facebook, Twitter, ArrowUp, ArrowLeft } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook, Twitter, ArrowLeft } from 'lucide-react'; // ArrowUp (BackToTopButton உடன் தொடர்புடையது) நீக்கப்பட்டது
 
 // --- Import NavBar component and its CSS ---
 import NavBar from './NavBar'; // Assuming NavBar component is in NavBar.js
 import './NavBar.css'; // Make sure NavBar.css is correctly linked and contains relevant styles
 
 // --- Import images for the page content ---
-
 import museum from './images/Ne1.jpg';
 import hospital from './images/ni3.jpg';
 import tower from './images/ne2.jpg';
@@ -17,6 +16,7 @@ import seema from './images/ni4.jpg';
 import Red_Mosque from './images/ni5.jpg';
 import portcity from './images/ni6.jpg';
 import colompo from './images/Ne1.jpg';
+
 const Footer = () => {
   return (
     <footer className="custom-footer-bg text-white py-4 mt-5 footer-fade-in">
@@ -29,10 +29,11 @@ const Footer = () => {
           <div className="col-md-4 mb-3">
             <h5 className="text-accent-pink">Quick Links</h5>
             <ul className="list-unstyled">
-              <li><a href="#top-things" className="text-white text-decoration-none hover-link">Top Things to Do</a></li>
-              <li><a href="#attractions" className="text-white text-decoration-none hover-link">Key Attractions</a></li>
-              <li><a href="#experiences" className="text-white text-decoration-none hover-link">Best Experiences</a></li>
-              <li><a href="#contact" className="text-white text-decoration-none hover-link">Contact Us</a></li>
+              {/* href="#" என்பதற்கு பதிலாக சரியான URL அல்லது preventDefault() சேர்க்கப்பட்டுள்ளது */}
+              <li><a href="#top-things" onClick={(e) => e.preventDefault()} className="text-white text-decoration-none hover-link">Top Things to Do</a></li>
+              <li><a href="#attractions" onClick={(e) => e.preventDefault()} className="text-white text-decoration-none hover-link">Key Attractions</a></li>
+              <li><a href="#experiences" onClick={(e) => e.preventDefault()} className="text-white text-decoration-none hover-link">Best Experiences</a></li>
+              <li><a href="#contact" onClick={(e) => e.preventDefault()} className="text-white text-decoration-none hover-link">Contact Us</a></li>
             </ul>
           </div>
           <div className="col-md-4 mb-3">
@@ -43,9 +44,10 @@ const Footer = () => {
               <li><Mail size={16} className="me-2" /> info@colomboexplorer.lk</li>
             </ul>
             <div className="d-flex mt-3">
-              <a href="#" className="text-white me-3 social-icon"><Facebook size={24} /></a>
-              <a href="#" className="text-white me-3 social-icon"><Twitter size={24} /></a>
-              <a href="#" className="text-white social-icon"><Instagram size={24} /></a>
+              {/* href="#" என்பதற்கு பதிலாக சரியான URL அல்லது preventDefault() சேர்க்கப்பட்டுள்ளது */}
+              <a href="#" onClick={(e) => e.preventDefault()} className="text-white me-3 social-icon"><Facebook size={24} /></a>
+              <a href="#" onClick={(e) => e.preventDefault()} className="text-white me-3 social-icon"><Twitter size={24} /></a>
+              <a href="#" onClick={(e) => e.preventDefault()} className="text-white social-icon"><Instagram size={24} /></a>
             </div>
           </div>
         </div>
@@ -59,7 +61,7 @@ const Footer = () => {
 };
 
 // --- Hero Section Component ---
-const HeroSection = ({ backgroundImage, title, subtitle, buttonText, onButtonClick }) => {
+const HeroSection = ({ backgroundImage, title, subtitle }) => {
   return (
     <div
       className="hero-section d-flex align-items-center justify-content-center text-center"
@@ -103,20 +105,12 @@ const HeroSection = ({ backgroundImage, title, subtitle, buttonText, onButtonCli
             {subtitle}
           </p>
         )}
-
-        {buttonText && (
-          <button
-            onClick={onButtonClick}
-            className="kana-ily-button-style d-inline-flex align-items-center justify-content-center hero-button-animation"
-          >
-            {buttonText}
-          </button>
-        )}
       </div>
     </div>
   );
 };
 
+// --- BackButton Component ---
 const BackButton = () => {
   const navigate = useNavigate();
 
@@ -127,10 +121,9 @@ const BackButton = () => {
   return (
     <div
       className="container-fluid py-5"
-      style={{ backgroundColor: '#f8f9fa', marginTop: '30px' }}  // <-- Add marginTop here
+      style={{ backgroundColor: '#f8f9fa', marginTop: '30px' }}
     >
       <div className="row justify-content-start ps-5">
-
         <div className="col-auto ps-1">
           <button
             onClick={handleBackClick}
@@ -143,9 +136,6 @@ const BackButton = () => {
     </div>
   );
 };
-
-
-
 
 // --- Card Component ---
 const Card = ({ title, description, image }) => (
@@ -177,60 +167,17 @@ const Section = ({ title, cards, id }) => (
   </section>
 );
 
-// --- BackToTopButton Component ---
-const BackToTopButton = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
-  }, []);
-
-  return (
-    <button
-      className={`back-to-top-btn btn btn-outline-accent-pink rounded-circle shadow-lg ${isVisible ? 'show' : 'hide'}`}
-      onClick={scrollToTop}
-      title="Back to top"
-    >
-      <ArrowUp size={24} />
-    </button>
-  );
-};
-
-// --- Main Page Component: AnuradhapuraDetailsPage ---
+// --- Main Page Component: NegomboDetailsPage ---
 const NegomboDetailsPage = () => {
   const attractions = [
     { title: 'Tissa Wewa', image: museum, description: 'Discover history and heritage.' },
-    { title: 'Thuparama Stupa', image: tower, description: 'An ancient stupa, one of the oldest in Sri Lanka.' },
-    { title: 'Abhayagiri Stupa', image: hospital, description: 'A vast monastery complex and one of the largest stupas.' },
-    { title: 'Lovamahapaya', image: seema, description: 'The Brazen Palace, a magnificent nine-storied building.' },
-    { title: 'Ratnaprasadaya', image: Red_Mosque, description: 'Known for its guard stones and ancient architecture.' },
-    { title: 'Jetavanarama Stupa', image: portcity, description: 'One of the tallest brick structures in the world.' },
-  ];
-
-  // Handler for the new "Kana ily" button - This handler is no longer needed but kept for context.
-  const handleKanaIlyClick = () => {
-    alert("Kana ily button clicked!");
-    console.log("Kana ily button was pressed.");
-  };
-
+       { title: 'Thuparama Stupa', image: tower, description: 'An ancient stupa, one of the oldest in Sri Lanka.' },
+       { title: 'Abhayagiri Stupa', image: hospital, description: 'A vast monastery complex and one of the largest stupas.' },
+       { title: 'Lovamahapaya', image: seema, description: 'The Brazen Palace, a magnificent nine-storied building.' },
+       { title: 'Ratnaprasadaya', image: Red_Mosque, description: 'Known for its guard stones and ancient architecture.' },
+       { title: 'Jetavanarama Stupa', image: portcity, description: 'One of the tallest brick structures in the world.' },
+     ];
+     
   return (
     <div className="min-vh-100 d-flex flex-column">
       {/* Render the NavBar component here */}
@@ -541,8 +488,6 @@ const NegomboDetailsPage = () => {
           transform: translateY(0);
           box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-
-        /* --- Removed .kana-ily-button-style from here as it's no longer used --- */
       `}</style>
 
       {/* The BackButton component is rendered directly below the NavBar */}
@@ -554,10 +499,6 @@ const NegomboDetailsPage = () => {
             backgroundImage={colompo}
             title="Explore the Wonders of Anuradhapura"
             subtitle="An ancient city filled with historical and spiritual treasures."
-            // Removed buttonText and onButtonClick props to hide the button
-            // buttonText="Kana ily"
-            // onButtonClick={handleKanaIlyClick}
-            
           />
 
           <h1
@@ -578,14 +519,8 @@ const NegomboDetailsPage = () => {
       </div>
 
       <Footer />
-      {/* <BackToTopButton /> */}
     </div>
   );
 };
 
 export default NegomboDetailsPage;
-
-
-
-
-

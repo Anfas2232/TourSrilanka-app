@@ -29,10 +29,10 @@ const Footer = () => {
           <div className="col-md-4 mb-3">
             <h5 className="text-accent-pink">Quick Links</h5>
             <ul className="list-unstyled">
-              <li><a href="#top-things" className="text-white text-decoration-none hover-link">Top Things to Do</a></li>
-              <li><a href="#attractions" className="text-white text-decoration-none hover-link">Key Attractions</a></li>
-              <li><a href="#experiences" className="text-white text-decoration-none hover-link">Best Experiences</a></li>
-              <li><a href="#contact" className="text-white text-decoration-none hover-link">Contact Us</a></li>
+              <li><a href="/contact" className="text-white text-decoration-none hover-link">Top Things to Do</a></li>
+              <li><a href="/contact" className="text-white text-decoration-none hover-link">Key Attractions</a></li>
+              <li><a href="/contact" className="text-white text-decoration-none hover-link">Best Experiences</a></li>
+              <li><a href="/contact" className="text-white text-decoration-none hover-link">Contact Us</a></li>
             </ul>
           </div>
           <div className="col-md-4 mb-3">
@@ -43,9 +43,9 @@ const Footer = () => {
               <li><Mail size={16} className="me-2" /> info@colomboexplorer.lk</li>
             </ul>
             <div className="d-flex mt-3">
-              <a href="#" className="text-white me-3 social-icon"><Facebook size={24} /></a>
-              <a href="#" className="text-white me-3 social-icon"><Twitter size={24} /></a>
-              <a href="#" className="text-white social-icon"><Instagram size={24} /></a>
+              <a href="https://www.linkedin.com/Anfas Mohamed" className="text-white me-3 social-icon"><Facebook size={24} /></a>
+              <a href="https://www.tiktok.com/@mr_anfas_10" className="text-white me-3 social-icon"><Twitter size={24} /></a>
+              <a href="https://www.youtube.com/@AnfasMohamed-c1x" className="text-white social-icon"><Instagram size={24} /></a>
             </div>
           </div>
         </div>
@@ -57,6 +57,7 @@ const Footer = () => {
     </footer>
   );
 };
+
 
 // --- Hero Section Component ---
 const HeroSection = ({ backgroundImage, title, subtitle, buttonText, onButtonClick }) => {
