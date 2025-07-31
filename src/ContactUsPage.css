@@ -1,0 +1,18 @@
+.contact-page {
+  background: linear-gradient(to bottom right, #f8f9fa, #e3f2fd);
+  min-height: 100vh;
+}
+
+.contact-page h2 {
+  color: #004d99;
+}
+
+.contact-page form input,
+.contact-page form textarea {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.contact-page form button {
+  border-radius: 10px;
+}
