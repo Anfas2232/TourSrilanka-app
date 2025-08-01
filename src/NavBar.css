@@ -1,137 +1,143 @@
+/* --- Desktop Styles --- */
 .custom-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #457090; /* Match screenshot background */
-  padding: 12px 30px;
-  position: fixed;
+  padding: 10px 20px;
+  background-color: #2e4a6a; /* A dark blue similar to the image */
+  color: white;
+  position: sticky;
   top: 0;
-  width: 100%;
   z-index: 1000;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-
-
-.nav-brand {
+.nav-left .nav-brand {
   font-size: 1.5rem;
+  font-weight: bold;
   color: white;
   text-decoration: none;
 }
 
-/* Show dropdown on hover */
-.nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-  margin-top: 0;
-}
-
-/* Optional: Smooth transition */
-.dropdown-menu {
-  transition: all 0.3s ease;
-}
-
-
-/* Background color of dropdown */
-.dropdown-menu {
-  background-color: #f3f4f5; /* dark navy or change to your custom color */
-  border: none;
-  border-radius: 8px;
-}
-
-/* Text color */
-.dropdown-menu .dropdown-item {
-  color: #0c0c0c; /* white text */
-}
-
-/* Hover effect */
-.dropdown-menu .dropdown-item:hover {
-  background-color: #7bcdcd; /* your highlight color */
-  color: #ffffff;
-  font-weight: 500;
-  border-radius: 4px;
-}
-
-
-.nav-brand em {
+.nav-left .nav-brand em {
   font-style: italic;
-  font-weight: 600;
+  font-weight: normal;
 }
 
-.nav-brand strong {
-  font-weight: bold;
-}
-
-/* NavBar.css */
-.navbar-nav .nav-link {
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-}
-
-
+/* Center the menu */
 .nav-center {
-  flex-grow: 1;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Allows the nav-center to take up available space */
+  justify-content: center; /* Centers the ul menu */
 }
 
 .nav-menu {
+  display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  display: inline-flex;
-  gap: 30px;
 }
 
 .nav-menu li {
-  font-size: 1rem;
+  position: relative;
+  margin: 0 15px;
 }
 
-.nav-menu li a,
-.nav-menu li span {
+.nav-menu a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
-  cursor: pointer;
+  font-weight: 600;
+  padding: 10px 0;
+  display: block;
 }
 
-.nav-menu li a:hover,
-.nav-menu li span:hover {
-  color: #e0e0e0;
+/* Dropdown styling */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
-.nav-right {
-  display: flex;
-  align-items: center;
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #788e97; /* Match navbar background */
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  border-radius: 5px;
+  min-width: 200px;
 }
 
-.nav-search {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 20px;
-  padding: 6px 12px;
-}
-
-.nav-search input {
-  border: none;
-  background: transparent;
+.dropdown-menu .dropdown-item {
   color: white;
-  padding: 6px;
-  font-size: 0.9rem;
-  outline: none;
-  width: 150px;
+  padding: 8px 20px;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
 }
 
-.nav-search input::placeholder {
-  color: rgba(255, 255, 255, 0.8);
+.dropdown-menu .dropdown-item:hover {
+  background-color: #576d78;
 }
 
-.nav-search button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-left: 5px;
+/* Hide the hamburger menu on desktop */
+.hamburger-menu {
+  display: none;
+}
+
+/* --- Mobile Styles --- */
+@media (max-width: 900px) {
+  .custom-navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .nav-center {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-center.nav-open {
+    display: flex;
+  }
+  
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+
+  .nav-menu a {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    background-color: #3e5a7a;
+    border-radius: 0;
+  }
+
+  .dropdown-menu .dropdown-item {
+    padding-left: 40px;
+  }
+
+  /* Show the hamburger menu on mobile */
+  .hamburger-menu {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+  }
 }
