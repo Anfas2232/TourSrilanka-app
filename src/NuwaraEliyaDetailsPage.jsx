@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -7,9 +7,8 @@ import { ArrowUp, ArrowLeft } from 'lucide-react';
 import NavBar from './NavBar';
 import './NavBar.css';
 
-import Footer from './Footer'; 
+import Footer from './Footer';
 import './Footer.css';
-
 
 import museum from './images/nu1.jpg';
 import hospital from './images/nu3.jpg';
@@ -18,7 +17,6 @@ import seema from './images/nu4.jpg';
 import Red_Mosque from './images/nu5.jpg';
 import portcity from './images/nu6.jpg';
 import colompo from './images/nu1.jpg';
-
 
 // --- Hero Section Component ---
 const HeroSection = ({ title, subtitle, buttonText, onButtonClick, backgroundImage }) => {
@@ -81,8 +79,8 @@ const BackButton = () => {
 
   return (
     <div
-      className="container-fluid py-5"
-      style={{ backgroundColor: '#f8f9fa', marginTop: '30px' }}
+      className="container-fluid py-3" 
+      style={{ backgroundColor: '#f8f9fa', marginTop: '10px' }} 
     >
       <div className="row justify-content-start ps-5">
         <div className="col-auto ps-1">
@@ -176,8 +174,6 @@ const NuwaraEliyaDetailsPage = () => {
     { title: 'Ratnaprasadaya', image: Red_Mosque, description: 'Known for its guard stones and ancient architecture.' },
     { title: 'Jetavanarama Stupa', image: portcity, description: 'One of the tallest brick structures in the world.' },
   ];
-
- 
 
   return (
     <div className="min-vh-100 d-flex flex-column">
@@ -364,7 +360,7 @@ const NuwaraEliyaDetailsPage = () => {
           border-radius: var(--content-border-radius);
           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
           padding: 40px;
-          margin-top: 0px; /* Adjusted to sit right below the button's wrapper */
+          margin-top: 10px; /* Increased from -30px to 10px */
           margin-bottom: 30px;
           max-width: 1200px;
           margin-left: auto;
@@ -494,13 +490,13 @@ const NuwaraEliyaDetailsPage = () => {
       {/* The BackButton component is rendered directly below the NavBar */}
       <BackButton />
 
-      <div className="container-fluid py-5 flex-grow-1">
+      <div className="container-fluid py-2 flex-grow-1">  {/* Changed from py-0 to py-2 to add a little space */}
         <div className="main-content-column">
 
             <HeroSection
-                title="Explore the Wonders of NuwaraEliy"
+                title="Explore the Wonders of NuwaraEliya"
                 subtitle="An ancient city filled with historical and spiritual treasures."
-                backgroundImage={colompo} // Ensure colompo is correctly imported and passed
+                backgroundImage={colompo} 
             />
 
           <h1
@@ -513,7 +509,7 @@ const NuwaraEliyaDetailsPage = () => {
               marginTop: '50px'
             }}
           >
-            The Ancient Wonders of NuwaraEliy
+            The Ancient Wonders of NuwaraEliya
           </h1>
 
           <Section title="Key Attractions" cards={attractions} id="attractions" />
@@ -527,7 +523,6 @@ const NuwaraEliyaDetailsPage = () => {
 };
 
 export default NuwaraEliyaDetailsPage;
-
 
 
 

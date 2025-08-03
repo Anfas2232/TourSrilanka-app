@@ -15,6 +15,13 @@
   font-family: 'Prompt', sans-serif;
 }
 
+.container-fluid.py-5 {
+  background-color: #f8f9fa;
+  margin-top: 10px; /* 30px-ஐ 10px ஆக்கிட்டோம் */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 
 
 .map-container {
