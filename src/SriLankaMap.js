@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
@@ -9,8 +8,7 @@ import NavBar from './NavBar';
 import './NavBar.css';
 import museum from './images/Location.png';
 
-
-// Fix leaflet marker icons (using CDN links for simplicity)
+// Fix leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
@@ -18,17 +16,15 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
 });
 
-// Tourist destinations data
 const place = [
   {
-  name: ' You are here',
-  lat: 7.3012,
-  lng: 80.6380,
-  image: museum,
-  description: 'Temporary location  Resort near Kandy.',
-  temperature: '22°C',
-},
-
+    name: 'You are here',
+    lat: 7.3012,
+    lng: 80.6380,
+    image: museum,
+    description: 'Temporary location - Resort near Kandy',
+    temperature: '22°C',
+  },
   {
     name: 'Colombo',
     lat: 6.9271,
@@ -37,7 +33,7 @@ const place = [
     description: 'Vibrant capital blending colonial heritage, seaside promenades, markets and temples.',
     temperature: '28°C',
   },
-      {
+    {
     name: 'Kandy',
     lat: 7.2906,
     lng: 80.6337,
@@ -157,16 +153,14 @@ const place = [
     description: 'Hilltop cave-temple complex with Buddha statues and murals.',
     temperature: '31°C',
   }
-  // ... add other places here
+  // ... more places
 ];
 
-// Reference coordinates (Kandy) for distance calc
 const kandyLat = 7.2906;
 const kandyLng = 80.6337;
 
-// Haversine formula to calculate distance (km)
 function calculateDistance(lat1, lon1, lat2, lon2) {
-  const R = 6371; // Radius of Earth in km
+  const R = 6371;
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
   const dLon = ((lon2 - lon1) * Math.PI) / 180;
   const a =
@@ -194,22 +188,23 @@ function SriLankaMap() {
           attribution="&copy; OpenStreetMap contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
         {place.map((p, index) => {
-          // Create a circular icon with background image
+          const isHere = p.name === 'You are here';
           const circularIcon = L.divIcon({
             html: `<div style="
               background-image: url(${p.image});
               background-size: cover;
               background-position: center;
-              width: 50px;
-              height: 50px;
+              width: ${isHere ? '60px' : '50px'};
+              height: ${isHere ? '60px' : '50px'};
               border-radius: 50%;
-              border: 3px solid #007bff;
-              box-shadow: 0 0 8px rgba(0,0,0,0.4);
+              border: 3px solid ${isHere ? '#e74c3c' : '#007bff'};
+              box-shadow: 0 0 ${isHere ? '12px' : '8px'} rgba(0,0,0,0.4);
             "></div>`,
             className: '',
-            iconSize: [50, 50],
-            iconAnchor: [25, 50],
+            iconSize: [isHere ? 60 : 50, isHere ? 60 : 50],
+            iconAnchor: [isHere ? 30 : 25, isHere ? 60 : 50],
             popupAnchor: [0, -50],
           });
 
@@ -278,8 +273,8 @@ function SriLankaMap() {
                         alignItems: 'center',
                       }}
                     >
-                      <MapPin size={20} style={{ marginRight: '6px', color: '#e74c3c' }} />
-                      {p.name.replace(/_/g, ' ')}
+                      <MapPin size={20} style={{ marginRight: '6px', color: isHere ? '#e74c3c' : '#007bff' }} />
+                      {p.name}
                     </h5>
                   </div>
                   <p
@@ -307,39 +302,41 @@ function SriLankaMap() {
                     }}
                   >
                     <div>🌡️ <strong>{p.temperature}</strong></div>
-                    <div>🧭 <strong>{distanceFromKandy} km from Kandy</strong></div>
+                    <div>🧽 <strong>{distanceFromKandy} km from Kandy</strong></div>
                   </div>
-                  <button
-                    onClick={() => navigate(`/details/${encodeURIComponent(p.name)}`)}
-                    style={{
-                      width: '100%',
-                      padding: '10px 0',
-                      backgroundColor: '#007bff',
-                      border: 'none',
-                      borderRadius: '8px',
-                      color: 'white',
-                      fontWeight: '700',
-                      fontSize: '1rem',
-                      letterSpacing: '0.03em',
-                      cursor: 'pointer',
-                      boxShadow: '0 4px 12px rgba(0, 123, 255, 0.5)',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      gap: '8px',
-                      transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.backgroundColor = '#0056b3';
-                      e.currentTarget.style.boxShadow = '0 6px 18px rgba(0, 86, 179, 0.7)';
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.backgroundColor = '#007bff';
-                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 123, 255, 0.5)';
-                    }}
-                  >
-                    Explore More <ArrowRight size={18} />
-                  </button>
+                  {!isHere && (
+                    <button
+                      onClick={() => navigate(`/details/${encodeURIComponent(p.name)}`)}
+                      style={{
+                        width: '100%',
+                        padding: '10px 0',
+                        backgroundColor: '#007bff',
+                        border: 'none',
+                        borderRadius: '8px',
+                        color: 'white',
+                        fontWeight: '700',
+                        fontSize: '1rem',
+                        letterSpacing: '0.03em',
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 12px rgba(0, 123, 255, 0.5)',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        gap: '8px',
+                        transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.backgroundColor = '#0056b3';
+                        e.currentTarget.style.boxShadow = '0 6px 18px rgba(0, 86, 179, 0.7)';
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.backgroundColor = '#007bff';
+                        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 123, 255, 0.5)';
+                      }}
+                    >
+                      Explore More <ArrowRight size={18} />
+                    </button>
+                  )}
                 </div>
               </Popup>
             </Marker>
