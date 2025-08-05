@@ -63,8 +63,7 @@ function AnimatedRoutes() {
             <Route path="/about" element={<AboutUsPage />} />
             <Route path="/contact" element={<ContactUsPage />} />
             <Route path="/key-experiences" element={<KeyExperiencesPage />} />
-           
-       
+            
         
           </Routes>
         </div>

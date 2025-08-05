@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ArrowRight, MapPin } from 'lucide-react';
 import NavBar from './NavBar';
 import './NavBar.css';
+import museum from './images/Location.png';
 
 
 // Fix leaflet marker icons (using CDN links for simplicity)
@@ -19,6 +20,15 @@ L.Icon.Default.mergeOptions({
 
 // Tourist destinations data
 const place = [
+  {
+  name: ' You are here',
+  lat: 7.3012,
+  lng: 80.6380,
+  image: museum,
+  description: 'Temporary location  Resort near Kandy.',
+  temperature: '22°C',
+},
+
   {
     name: 'Colombo',
     lat: 6.9271,

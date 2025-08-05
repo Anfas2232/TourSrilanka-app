@@ -27,7 +27,7 @@ const Footer = () => {
           <div className="col-md-4 mb-3">
             <h5 className="text-accent-pink">Contact Us</h5>
             <ul className="list-unstyled">
-              <li><MapPin size={16} className="me-2" /> 123 Main Street, Colombo, Sri Lanka</li>
+              <li><MapPin size={16} className="me-2" /> 273 Katugastota Rd, Kandy 20000</li>
               <li><Phone size={16} className="me-2" /> +94 11 234 5678</li>
               <li><Mail size={16} className="me-2" /> info@colomboexplorer.lk</li>
             </ul>
